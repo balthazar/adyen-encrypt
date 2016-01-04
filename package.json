@@ -1,7 +1,7 @@
 {
   "name": "adyen-encrypt",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "An ES2015 Adyen-CSE rewrite",
   "main": "dist",
   "scripts": {
     "build": "rm -rf dist && mkdir dist && babel src -o dist/index.js",
