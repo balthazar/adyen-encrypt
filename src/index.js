@@ -1,7 +1,5 @@
 import sjcl from 'sjcl'
 
-import AES from './aes'
-
 export default class AdyenEncrypt {
 
   constructor (key, opts) {
