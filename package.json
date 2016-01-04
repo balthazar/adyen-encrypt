@@ -1,0 +1,27 @@
+{
+  "name": "adyen-encrypt",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist",
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && babel src -o dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Apercu/adyen-encrypt.git"
+  },
+  "author": "Balthazar Gronon <bgronon@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Apercu/adyen-encrypt/issues"
+  },
+  "homepage": "https://github.com/Apercu/adyen-encrypt#readme",
+  "dependencies": {
+    "sjcl": "^1.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13"
+  }
+}
