@@ -2,7 +2,7 @@ import sjcl from 'sjcl'
 
 import AES from './aes'
 
-export default class Encryption {
+export default class AdyenEncrypt {
 
   constructor (key, opts) {
 
@@ -49,6 +49,7 @@ export default class Encryption {
    * @param data.cvc {String}
    * @param data.expiryMonth {String}
    * @param data.expiryYear {String}
+   * @param data.holderName {String}
    * @returns {String}
    */
 	encrypt (data) {
@@ -57,7 +58,8 @@ export default class Encryption {
       number: data.number || '',
       cvc: data.cvc || '',
       month: data.expiryMonth || '',
-      year: data.expiryYear || ''
+      year: data.expiryYear || '',
+      holderName: data.holderName || ''
     }
 
     if (this._opts.enableValidations && !this.validate(validations)) { return false }
