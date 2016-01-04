@@ -2,7 +2,7 @@ import sjcl from 'sjcl'
 
 export default class AdyenEncrypt {
 
-  constructor (key, opts) {
+  constructor (key, opts = {}) {
 
     this._key = key
     this._opts = opts
