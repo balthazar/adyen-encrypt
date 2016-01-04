@@ -124,7 +124,7 @@ export default class AdyenEncrypt {
         out = out && this._checkCvc(val)
       } else if (field === 'expiryYear' || field === 'year') {
         out = out && this._checkYear(val)
-      } else if (field === 'expirymonth' || field === 'month') {
+      } else if (field === 'expiryMonth' || field === 'month') {
         out = out && this._checkMonth(val)
       } else if (field === 'holderName') {
         out = out && this._checkName(val)
