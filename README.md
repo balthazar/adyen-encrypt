@@ -1,6 +1,6 @@
 # adyen-encrypt
 
-> A rewrite of [Adyen-CSE](https://github.com/Adyen/CSE-JS), in ES2015 for React
+> A rewrite of [Adyen-CSE](https://github.com/Adyen/CSE-JS) in ES2015 for the browser
 
     npm i -S adyen-encrypt
 
