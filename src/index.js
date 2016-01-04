@@ -13,7 +13,7 @@ export default class AdyenEncrypt {
 
     sjcl.random.startCollectors()
 
-		if (typeof this._opts.numberIgnoreNonNumeric === 'undefined') {
+    if (typeof this._opts.numberIgnoreNonNumeric === 'undefined') {
       this._opts.numberIgnoreNonNumeric = true
     }
 
@@ -21,23 +21,23 @@ export default class AdyenEncrypt {
       delete this._opts.cvcIgnoreFornumber
     }
 
-		if (typeof this._opts.cvcIgnoreBins === 'string') {
-			const binsToIgnore = []
+    if (typeof this._opts.cvcIgnoreBins === 'string') {
+      const binsToIgnore = []
 
-			this._opts.cvcIgnoreBins.replace(/\d+/g, function (m) {
-				if (m.length > 0 && !isNaN(parseInt(m, 10))) {
-					binsToIgnore.push(m)
-				}
-				return m
-			})
+      this._opts.cvcIgnoreBins.replace(/\d+/g, function (m) {
+        if (m.length > 0 && !isNaN(parseInt(m, 10))) {
+          binsToIgnore.push(m)
+        }
+        return m
+      })
 
-			if (binsToIgnore.length > 0) {
-				this._opts.cvcIgnoreFornumber = new RegExp('^\\s*(' + binsToIgnore.join('|') + ')')
-			}
+      if (binsToIgnore.length > 0) {
+        this._opts.cvcIgnoreFornumber = new RegExp('^\\s*(' + binsToIgnore.join('|') + ')')
+      }
 
-		} else if (typeof this._opts.cvcIgnoreBins !== 'undefined') {
-			delete this._opts.cvcIgnoreBins
-		}
+    } else if (typeof this._opts.cvcIgnoreBins !== 'undefined') {
+      delete this._opts.cvcIgnoreBins
+    }
 
   }
 
@@ -52,7 +52,7 @@ export default class AdyenEncrypt {
    * @param data.holderName {String}
    * @returns {String}
    */
-	encrypt (data) {
+  encrypt (data) {
 
     const validations = {
       number: data.number || '',
