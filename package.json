@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist",
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && babel src -o dist/index.js"
+    "build": "rm -rf dist && mkdir dist && babel src -o dist/index.js",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
