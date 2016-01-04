@@ -4,6 +4,8 @@ export default class AdyenEncrypt {
 
   constructor (key, opts = {}) {
 
+    if (!key) { throw new Error('No key provided.') }
+
     this._key = key
     this._opts = opts
 
