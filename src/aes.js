@@ -4,7 +4,7 @@ export default class AES {
 
   constructor () {
     sjcl.random.startCollectors()
-    this._key = sjcl.random.randowWords(8, 0)
+    this._key = sjcl.random.randomWords(8, 0)
   }
 
   encrypt (text) {
