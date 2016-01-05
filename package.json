@@ -1,11 +1,12 @@
 {
   "name": "adyen-encrypt",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "An ES2015 Adyen-CSE rewrite",
   "main": "dist",
   "scripts": {
     "build": "rm -rf dist && mkdir dist && babel src/{aes,index}.js -o dist/tmp.js && cat {src/rsa,dist/tmp}.js >> dist/index.js && rm dist/tmp.js",
-    "postinstall": "npm run build"
+    "sjcl": "(cd ../sjcl && ./configure --with-codecBytes && make)",
+    "postinstall": "npm run build && npm run sjcl"
   },
   "repository": {
     "type": "git",
