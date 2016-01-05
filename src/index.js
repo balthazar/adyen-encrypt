@@ -67,7 +67,7 @@ export default class AdyenEncrypt {
     const rsa = this.createRSAKey()
     const aes = new AES()
     const cypher = aes.encrypt(JSON.stringify(data))
-    const bytes = sjcl.codec.bytes.fromBits(aes.key)
+    const bytes = sjcl.codec.bytes.fromBits(aes._key)
     const encrypted = rsa.encrypt_b64(bytes)
     const prefix = `adyenjs_${this._encryptVersion}$`
 
