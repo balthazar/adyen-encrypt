@@ -4,6 +4,8 @@
 
     npm i -S adyen-encrypt
 
+Please note that it this package will only work with an npm >= 3.
+
 ###### Constructor
 
 `key` The public key string you can find in the Adyen customer area
@@ -11,13 +13,13 @@
 `opts` An object containing optionals as described below
 
     import AdyenEncrypt from 'adyen-encrypt'
-    
+
     const instance = AdyenEncrypt(key, {
       enableValidations: true,
       numberIgnoreNonNumeric: true,
       cvcIgnoreBins: '101,404'
     })
-    
+
 ###### encrypt
 
 `data` The object to encrypt
