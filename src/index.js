@@ -122,16 +122,16 @@ export default class AdyenEncrypt {
       if (ignore) { return }
 
       const fieldCheck = {
-        number: this._checkNumber,
-        cvc: this._checkCvc,
-        expiryYear: this._checkYear,
-        year: this._checkYear,
-        expiryMonth: this._checkMonth,
-        month: this._checkMonth,
-        holderName: this._checkName
+        number: ::this._checkNumber,
+        cvc: ::this._checkCvc,
+        expiryYear: ::this._checkYear,
+        year: ::this._checkYear,
+        expiryMonth: ::this._checkMonth,
+        month: ::this._checkMonth,
+        holderName: ::this._checkName
       }
 
-      if (fieldCheck[field] && !fieldCheck[field].bind(this, val)) {
+      if (fieldCheck[field] && !fieldCheck[field](val)) {
         out.push(field)
       }
 
