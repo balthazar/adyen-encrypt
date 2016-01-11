@@ -63,8 +63,8 @@ export default class AdyenEncrypt {
     }
 
     if (this._opts.enableValidations) {
-      const checks = this.validate(validations)
-      if (checks.length) { return checks }
+      const errors = this.validate(validations)
+      if (errors.length) { return { valid: false, errors } }
     }
 
     const rsa = this.createRSAKey()
@@ -74,7 +74,7 @@ export default class AdyenEncrypt {
     const encrypted = rsa.encrypt_b64(bytes)
     const prefix = `adyenjs_${this._encryptVersion}$`
 
-    return `${prefix}${encrypted}$${cypher}`
+    return { valid: true, value: `${prefix}${encrypted}$${cypher}` }
   }
 
   /**
