@@ -62,7 +62,10 @@ export default class AdyenEncrypt {
       holderName: data.holderName || ''
     }
 
-    if (this._opts.enableValidations && !this.validate(validations)) { return false }
+    if (this._opts.enableValidations) {
+      const checks = this.validate(validations)
+      if (checks.length) { return checks }
+    }
 
     const rsa = this.createRSAKey()
     const aes = new AES()
@@ -102,7 +105,7 @@ export default class AdyenEncrypt {
   validate (data) {
     if (typeof data !== 'object') { return false }
 
-    let out = true
+    let out = []
 
     Object.keys(data).forEach(field => {
 
@@ -118,18 +121,18 @@ export default class AdyenEncrypt {
 
       if (ignore) { return }
 
-      if (field === 'number') {
-        out = out && this._checkNumber(val)
-      } else if (field === 'cvc') {
-        out = out && this._checkCvc(val)
-      } else if (field === 'expiryYear' || field === 'year') {
-        out = out && this._checkYear(val)
-      } else if (field === 'expiryMonth' || field === 'month') {
-        out = out && this._checkMonth(val)
-      } else if (field === 'holderName') {
-        out = out && this._checkName(val)
-      } else {
-        out = false
+      const fieldCheck = {
+        number: this._checkNumber,
+        cvc: this._checkCvc,
+        expiryYear: this._checkYear,
+        year: this._checkYear,
+        expiryMonth: this._checkMonth,
+        month: this._checkMonth,
+        holderName: this._checkName
+      }
+
+      if (fieldCheck[field] && !fieldCheck[field](val)) {
+        out.push(field)
       }
 
     })
