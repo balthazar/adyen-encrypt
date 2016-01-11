@@ -176,7 +176,8 @@ export default class AdyenEncrypt {
    * @param val {String}
    */
   _checkNumber (val = '') {
-    return (val.replace(/[^\d]/g, '').match(/^\d{10,20}$/) && this._checkLuhn(val))
+    const card = val.replace(/[^\d]/g, '')
+    return card.match(/^\d{10,20}$/) && this._checkLuhn(card)
   }
 
   /**
