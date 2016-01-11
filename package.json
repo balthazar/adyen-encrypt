@@ -1,6 +1,6 @@
 {
   "name": "adyen-encrypt",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "An ES2015 Adyen-CSE rewrite",
   "main": "dist",
   "scripts": {
@@ -20,10 +20,8 @@
   "homepage": "https://github.com/Apercu/adyen-encrypt#readme",
   "dependencies": {
     "jsencrypt": "^2.1.0",
-    "sjcl": "^1.0.3"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.3.17",
+    "sjcl": "^1.0.3",
+    "babel-cli": "^6.4.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13"
   }
