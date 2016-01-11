@@ -131,7 +131,7 @@ export default class AdyenEncrypt {
         holderName: this._checkName
       }
 
-      if (fieldCheck[field] && !fieldCheck[field](val)) {
+      if (fieldCheck[field] && !fieldCheck[field].bind(this, val)) {
         out.push(field)
       }
 
