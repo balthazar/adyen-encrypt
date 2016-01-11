@@ -113,7 +113,7 @@ export default class AdyenEncrypt {
 
       Object.keys(data).forEach(relatedField => {
         const possibleOption = this._opts[`${field}IgnoreFor${relatedField}`]
-        if (possibleoption && data[relatedField].match(possibleOption)) { ignore = true }
+        if (possibleOption && data[relatedField].match(possibleOption)) { ignore = true }
       })
 
       if (ignore) { return }
