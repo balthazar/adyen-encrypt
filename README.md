@@ -14,7 +14,7 @@ Please note that it this package will only work with an npm >= 3.
 
     import AdyenEncrypt from 'adyen-encrypt'
 
-    const instance = AdyenEncrypt(key, {
+    const instance = new AdyenEncrypt(key, {
       enableValidations: true,
       numberIgnoreNonNumeric: true,
       cvcIgnoreBins: '101,404'
