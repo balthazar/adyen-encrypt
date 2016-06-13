@@ -5,7 +5,7 @@
   "main": "dist",
   "scripts": {
     "build": "rm -rf dist && mkdir dist && babel src/{aes,index}.js -o dist/tmp.js && cat src/rsa.js >> dist/index.js && cat dist/tmp.js >> dist/index.js && rm dist/tmp.js",
-    "sjcl": "(cd ../sjcl && ./configure --with-codecBytes && make)",
+    "sjcl": "(cd ./node_modules/sjcl && ./configure --with-codecBytes && make)",
     "postinstall": "npm run build && npm run sjcl"
   },
   "repository": {
