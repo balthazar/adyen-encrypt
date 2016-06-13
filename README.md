@@ -4,7 +4,7 @@
 
     npm i -S adyen-encrypt
 
-Please note that it this package will only work with an npm >= 3.
+Please note that it this package will only work with an npm >= 3. You also need Java (:sob:) to recompile SJCL.
 
 ###### Constructor
 
