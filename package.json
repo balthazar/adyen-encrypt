@@ -1,10 +1,11 @@
 {
   "name": "adyen-encrypt",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "An ES2015 Adyen-CSE rewrite",
   "main": "dist",
+  "files": ["dist"],
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && babel src/{aes,index}.js -o dist/tmp.js && cat src/rsa.js >> dist/index.js && cat dist/tmp.js >> dist/index.js && uglifyjs dist/tmp.js -o dist/index.js",
+    "build": "rm -rf dist && mkdir dist && babel src/{aes,index}.js -o dist/tmp.js && cat src/rsa.js >> dist/index.js && cat dist/tmp.js >> dist/index.js && uglifyjs dist/tmp.js -o dist/index.js && rm dist/tmp.js",
     "sjcl": "(cd ./node_modules/sjcl && ./configure --with-codecBytes && make)",
     "postinstall": "npm run sjcl"
   },
