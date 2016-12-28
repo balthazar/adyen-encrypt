@@ -1,13 +1,13 @@
 {
   "name": "adyen-encrypt",
-  "version": "0.1.8",
+  "version": "0.2.0-beta.1",
   "description": "An ES2015 Adyen-CSE rewrite",
   "main": "dist",
   "files": ["dist"],
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && babel src/{aes,index}.js -o dist/tmp.js && cat src/rsa.js >> dist/index.js && cat dist/tmp.js >> dist/index.js && uglifyjs dist/tmp.js -o dist/index.js && rm dist/tmp.js",
-    "sjcl": "(cd ./node_modules/sjcl && ./configure --with-codecBytes && make)",
-    "postinstall": "npm run sjcl"
+    "clean": "rm -rf dist && mkdir dist",
+    "build": "npm run clean && babel src/{aes,index}.js -o dist/tmp.js && cp src/rsa.js dist/index.js && npm run sjcl && uglifyjs dist/tmp.js >> dist/index.js && rm dist/tmp.js",
+    "sjcl": "rm -rf sjcl && git clone git@github.com:bitwiseshiftleft/sjcl.git sjcl && cd $_ && ./configure --with-codecBytes && make && mv sjcl.js ../dist"
   },
   "repository": {
     "type": "git",
@@ -19,14 +19,14 @@
     "url": "https://github.com/Apercu/adyen-encrypt/issues"
   },
   "homepage": "https://github.com/Apercu/adyen-encrypt#readme",
-  "dependencies": {
-    "jsencrypt": "^2.1.0",
-    "sjcl": "^1.0.3"
-  },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-0": "^6.5.0",
-    "uglify-js": "^2.6.2"
+    "uglify-js": "^2.6.2",
+    "jsencrypt": "^2.1.0"
+  },
+  "babel": {
+    "presets": ["es2015", "stage-0"]
   }
 }
