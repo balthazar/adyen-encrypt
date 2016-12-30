@@ -1,6 +1,6 @@
 {
   "name": "adyen-encrypt",
-  "version": "0.2.0-beta.1",
+  "version": "0.2.0",
   "description": "An ES2015 Adyen-CSE rewrite",
   "main": "dist",
   "files": ["dist"],
