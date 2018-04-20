@@ -10,13 +10,15 @@
 
 `opts` An object containing optionals as described below
 
-    import AdyenEncrypt from 'adyen-encrypt'
+```js
+import AdyenEncrypt from 'adyen-encrypt'
 
-    const instance = new AdyenEncrypt(key, {
-      enableValidations: true,
-      numberIgnoreNonNumeric: true,
-      cvcIgnoreBins: '101,404'
-    })
+const instance = new AdyenEncrypt(key, {
+  enableValidations: true,
+  numberIgnoreNonNumeric: true,  
+  cvcIgnoreBins: '101,404'
+})
+```
 
 ###### encrypt
 
@@ -24,10 +26,12 @@
 
 Returns the encrypted string
 
-    instance.encrypt({
-      number: '5555 4444 3333 1111',
-      cvc: '737',
-      expiryMonth: '06',
-      expiryYear: '2016',
-      holderName: 'Balthazar Gronon'
-    })
+```js
+instance.encrypt({
+  number: '5555 4444 3333 1111',
+  cvc: '737',
+  expiryMonth: '06',
+  expiryYear: '2016',
+  holderName: 'Balthazar Gronon'
+})
+```
